@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>About</title>
+    <th:block id="home-static-resources">
+        <link th:href="@{/static/css/school.css}" rel="stylesheet" />
+    </th:block>
+</head>
+<body>
+    <div id="home-head" th:replace="~{app-fragments :: nav-default}">
+        head
+    </div>
+
+    <!--Wrapper ........................-->
+    <div id="about-content" class="bodyContent"><br/>
+        <div class="contentHeadTitle"> About us Page <hr style="width: 50%"> </div>
+
+        <br/>
+        <!--Content ........................-->
+        <div>
+            <h2 class="details">School Information</h2>
+            <span class="dtl_title">School Name: </span>
+            <span class="dtl_val" > MIT</span>
+            <br/>
+            <span class="dtl_title">Street: </span>
+            <span class="dtl_val" >Rue de la Tannerie 306</span>
+            <br/>
+            <span class="dtl_title">City: : </span>
+            <span class="dtl_val" >Hechtel</span>
+            <br/>
+            <span class="dtl_title"> State/province/area: </span>
+            <span class="dtl_val">Limburg</span>
+            <br/>
+            <span class="dtl_title"> Phone number: </span>
+            <span class="dtl_val">0487 18 49 12</span>
+            <br/>
+            <span class="dtl_title"> Web Site: </span>
+            <span class="dtl_val">www.mit.com</span>
+            <br/>
+            <span class="dtl_title"> Zip code: </span>
+            <span class="dtl_val">3940</span>
+            <br/>
+            <span class="dtl_title"> Country calling code: </span>
+            <span class="dtl_val">+32</span>
+            <br/>
+            <span class="dtl_title"> Country: </span>
+            <span class="dtl_val">Belgium</span>
+        </div>
+        <!--Content ........................-->
+
+    </div>
+    <!--Wrapper ........................-->
+
+    <div id="home-footer" th:replace="~{app-fragments :: copyright}">
+        Footer
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>Students</title>
+    <th:block id="home-static-resources">
+        <link th:href="@{/static/css/school.css}" rel="stylesheet" />
+    </th:block>
+</head>
+<body>
+    <div id="home-head" th:replace="~{app-fragments :: nav-default}">
+        head
+    </div>
+
+    <!--Wrapper ........................-->
+    <div id="student-content" class="bodyContent"><br/>
+        <div class="contentHeadTitle"> Student Page <hr style="width: 50%"></div> 
+
+        <!-- next/previous navigator-->
+        <div class="navigator">
+            <th:block th:if="${s_prev} == 'Y'">
+                <div class="navigator_btn previous"><a th:href="@{|/class/studentPrev/${id}|}">Previous</a></div>
+
+            </th:block>
+            <th:block th:if="${s_next} != 'N'"> 
+                <div class="navigator_btn next"><a th:href="@{|/student/detail/${detailStudentId}|}">Next</a></div>
+            </th:block>
+        </div>
+        <!-- next/previous navigator-->
+        <br/>
+
+        <!--Content-->
+        <div th:switch="${students}"> 
+            <h2 th:case="null">No users yet!</h2>
+            <div th:case="*">
+                <h2>Students</h2>
+                <p style="font-size: 25px;"><a th:href="@{/student/addPage}">Add a New Student</a></p>
+                <div style="overflow: scroll ; height: 500px;">
+
+                    <table id='student-table'>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Country</th>
+                                <th>Phone</th>
+                                <th>Class</th>
+                                <th>Details</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="student : ${students}">
+                                <td th:text="${student.id}"></td>
+                                <td th:text="${student.name}"></td>
+                                <td th:text="${student.age}"></td>
+                                <td th:text="${student.gender =='M'} ? 'Male' : 'Femal'" />
+                                <td th:text="${student.country}"></td>
+                                <td th:text="${student.phone}"></td>
+                                <td th:text="${student.studentClass.name}"></td>
+                                <td><a th:href="@{/student/detail/{id}(id=${student.id})}">Details</a></td>
+                                <td><a th:href="@{/student/editPage/{id}(id=${student.id})}">Edit</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id='search-div' >
+                        <h2 align='center'>Filtering</h2>
+                        <hr style="width: 50%"> <br/>
+                        <form action="#" th:action="@{/student/search}" th:object="${searchStudent}" method="post">
+
+                            <label class="lbl" for="name">Student Class:</label>
+                            <select th:field="*{searchClass}">
+                                <option th:each="c : ${classes}" th:value="${c.id}" th:text="${c.name}">
+                                </option>
+                            </select>
+                            <br/><br/>
+                            <label class="lbl" for="name">Student Gender:</label>
+                            <select th:field="*{searchGender}">
+                                <option th:value="'M'" th:text="Male"></option>
+                                <option th:value="'F'" th:text="Female"></option>
+                            </select>
+                            <br/><br/>
+                            <label class="lbl" for="name">Student Country:</label>
+                            <input type="text" th:field="*{searchCountry}" id="name" placeholder="Country">
+                            <br/><br/>
+                            <input class="btn" type="submit" value="Search"> 
+                            <a class="btn" th:href="@{/student/all}">Clear Search</a>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>      
+
+
+    </div>
+    <!--Content-->
+</div>
+<!--Wrapper ........................-->
+
+<div id="home-footer" th:replace="~{app-fragments :: copyright}">
+    Footer
+</div>
+</body>
+</html>

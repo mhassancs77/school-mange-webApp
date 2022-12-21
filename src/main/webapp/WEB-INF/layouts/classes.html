@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>Classes</title>
+    <th:block id="home-static-resources">
+        <link th:href="@{/static/css/school.css}" rel="stylesheet" />
+    </th:block>
+</head>
+<body>
+    <div id="home-head" th:replace="~{app-fragments :: nav-default}">
+        head
+    </div>
+
+    <!--wrapper ........................-->
+    <div id="class-content" class="bodyContent"> <br/>
+        <div class="contentHeadTitle"> Classes Page<hr style="width: 50%"> </div>
+
+        
+      <!-- next/previous navigator-->
+          <div class="navigator">
+            <th:block th:if="${c_t_next} == 'Y'"> 
+                <div class="navigator_btn next"><a th:href="@{|/teacher/class/${detailTeacherId}|}">Next</a></div>
+            </th:block>
+              <th:block th:if="${c_s_next} == 'Y'"> 
+                <div class="navigator_btn next"><a th:href="@{|/student/class/${detailStudentId}|}">Next</a></div>
+            </th:block>
+        </div>
+        <!-- next/previous navigator-->
+        
+      <br/>
+
+        <!--Content-->
+        <div th:switch="${classes}">
+            <h2 th:case="null">No users yet!</h2>
+            <div th:case="*">
+                <h2>Classes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Capacity</th>
+                            <th>Space</th>
+                            <th>Teachers</th>
+                            <th>Students</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="class : ${classes}">
+                            <td th:text="${class.id}"></td>
+                            <td th:text="${class.name}"></td>
+                            <td th:text="${class.address}"></td>
+                            <td th:text="${class.capacity}"> student</td>
+                            <td th:text="${class.space}"> meter</td>
+                            <td><a th:href="@{/teacher/class/{id}(id=${class.id})}"> Teachers</a></td>
+                            <td><a th:href="@{/student/class/{id}(id=${class.id})}"> Students </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>      
+
+        </div>
+        <!--Content-->
+    </div>
+    <!--wrapper ........................-->
+
+    <div id="home-footer" th:replace="~{app-fragments :: copyright}">
+        Footer
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>Teacher Details</title>
+    <th:block id="home-static-resources">
+        <link th:href="@{/static/css/school.css}" rel="stylesheet" />
+    </th:block>
+</head>
+<body>
+    <div id="home-head" th:replace="~{app-fragments :: nav-default}">
+        head
+    </div>
+
+    <!--Wrapper ........................-->
+    <div id="teacherDetails-content" class="bodyContent"><br/>
+        <div class="contentHeadTitle"> Teacher Details Page <hr style="width: 50%"> </div>
+
+        <!-- next/previous navigator-->
+        <div class="navigator" >
+            <div class="navigator_btn previous"><a th:href="@{/teacher/prev}">Previous</a></div>
+        </div>
+        <!-- next/previous navigator-->
+
+        <br/>
+
+        <!--Content ........................-->
+        <div>
+            <h2 class="details">Teacher Details</h2>
+            <span class="dtl_title">Teacher Name: </span>
+            <span class="dtl_val" th:text="${teacher.name}"></span>
+            <br/>
+            <span class="dtl_title">Teacher Age: </span>
+            <span class="dtl_val" th:text="${teacher.age}"></span>
+            <br/>
+            <span class="dtl_title">Teacher Specialty: </span>
+            <span class="dtl_val" th:text="${teacher.specialty}"></span>
+            <br/>
+            <span class="dtl_title">Teacher Class </span>
+            <span class="dtl_val" th:text="${teacher.teacherClass.name}"></span>
+        </div>
+        <!--Content ........................-->
+
+    </div>
+    <!--Wrapper ........................-->
+
+    <div id="home-footer" th:replace="~{app-fragments :: copyright}">
+        Footer
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>Add Student</title>
+    <th:block id="home-static-resources">
+        <link th:href="@{/static/css/school.css}" rel="stylesheet" />
+    </th:block>
+</head>
+<body>
+    <div id="home-head" th:replace="~{app-fragments :: nav-default}">
+        head
+    </div>
+
+    <!--Wrapper ........................-->
+    <div id="about-content" class="bodyContent"><br/>
+        <div class="contentHeadTitle"> Add Student <hr style="width: 50%"> </div>
+
+        <!-- next/previous navigator-->
+        <div class="navigator" >
+            <div class="navigator_btn previous"><a th:href="@{/student/all}">Previous</a></div>
+        </div>
+        <!-- next/previous navigator-->
+        <br/>
+
+        <!--Content ........................-->
+        <div>
+            <h2>Add New Student</h2>
+            <form action="#" th:action="@{/student/edit}" th:object="${student}" method="post">
+
+                <input style="display: none" type="text" th:field="*{id}" id="name" placeholder="Name">
+                <label class="lbl" for="name">Student Name:</label>
+                <input type="text" th:field="*{name}" id="name" placeholder="Name">
+                <!--                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>-->
+                <br/>
+                <label class="lbl" for="name">Student Class:</label>
+                <select th:field="*{classId}">
+                    <option th:each="c : ${classes}" th:value="${c.id}" th:text="${c.name}">
+                    </option>
+                </select>
+                <br/>
+                <label class="lbl" for="name">Student Age:</label>
+                <input type="text" th:field="*{age}" id="name" placeholder="Name">
+
+                <br/>
+                <label class="lbl" for="name">Student Gender</label>
+                <select th:field="*{gender}">
+                    <option th:value="'M'" th:text="Male"></option>
+                    <option th:value="'F'" th:text="Female"></option>
+                </select>
+
+                <br/>
+                <label class="lbl" for="name">Student Country:</label>
+                <input type="text" th:field="*{country}" id="name" placeholder="Name">
+                <br/>
+                <label class="lbl" for="name">Student Phone:</label>
+                <input type="text" th:field="*{phone}" id="name" placeholder="Name">
+                <br/>
+                <!--...-->
+                <br/>
+                <input class="btn" type="submit" value="Edit Student">   
+            </form>
+        </div>
+        <!--Content ........................-->
+
+    </div>
+    <!--Wrapper ........................-->
+
+    <div id="home-footer" th:replace="~{app-fragments :: copyright}">
+        Footer
+    </div>
+</body>
+</html>

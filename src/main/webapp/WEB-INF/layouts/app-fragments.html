@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>MIT School</title>
+        <link th:href="@{/static/css/school.css}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Default Navigator -->
+        <div id="navId" th:fragment = "nav-default">
+            <a class="nav_element" th:href="@{/}">Home</a>
+            <a class="nav_element" th:href="@{/class/all}">Classes</a>
+            <a class="nav_element" th:href="@{/teacher/all}">Teachers</a>
+            <a class="nav_element" th:href="@{/student/all}">Students</a>
+            <a class="nav_element" th:href="@{/about_us}">About us</a>
+            <div id="websiteTiltle">MIT School Management System</div>
+        </div>
+
+        <div id="footerId" th:fragment="copyright">
+            @Copy Rights  
+        </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+      
+                                              
+<head>
+    <title>Home</title>
+    <th:block id="home-static-resources">
+        <link th:href="@{/static/css/school.css}" rel="stylesheet" />
+    </th:block>
+</head>
+<body>
+    <div id="home-head" th:replace="~{app-fragments :: nav-default}">
+        head
+    </div>
+    
+    <!--Content ........................-->
+    <div id="home-content" class="bodyContent" >
+        <!-- Here We Will Write Content of Home Page -->
+    </div>
+    <!--Content ........................-->
+    
+    <div id="home-footer" th:replace="~{app-fragments :: copyright}">
+        Footer
+    </div>
+</body>
+</html>

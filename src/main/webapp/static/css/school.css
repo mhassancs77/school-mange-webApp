@@ -1,0 +1,175 @@
+
+#navId{
+    background-color: white;
+    border: 1px grey solid;
+    padding-left: 50px;
+    background-color: whitesmoke;
+    height: 70px !important;
+}
+.nav_element{
+    display: inline-block;
+    width:100px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 22px;
+    font-weight: 500;
+    height: 48px;
+}
+
+.nav_element:hover{
+    background-color: lightcoral;
+}
+
+
+#websiteTiltle{
+    display: inline-block;
+    float:right;
+    width: 500px;
+    height: 48px;
+    padding-top: 20px; 
+    font-size: 24px;
+    font-weight: bold;
+    color: gray;
+    font-family: cursive;
+}
+
+#footerId{
+    background: grey;
+    height: 40px;
+    text-align: center;
+    vertical-align: central;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-top: -14px;
+}
+.bodyContent{
+    min-height: 600px;
+    padding-left: 5px;
+    margin: 0 auto;
+    
+}
+
+#home-content{
+    vertical-align: central;
+    text-align: center;
+    background: url('bg.jpg') no-repeat;
+    background-size: 100% 100%;
+}
+
+#student-content{
+    background: lightcyan;
+}
+#teacher-content{
+    background: lightyellow;
+}
+#class-content{
+    background: linen;
+}
+#about-content{
+    background: bisque;
+}
+#teacherDetails-content{
+    background: palegoldenrod;
+}
+#studentDetails-content{
+  background: palegoldenrod;  
+}
+.contentHeadTitle{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+}
+
+table{
+     border: 1px black solid;
+     width: 700px;
+}
+#student-table{
+    width: 60%;
+    float: left;
+    overflow: scroll;
+}
+
+
+tr:nth-child(even) {background: #fcb0c4}
+tr:nth-child(odd) {background: darkseagreen}
+th {
+    border: 1px black solid;
+    background: grey;
+    padding: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+td {
+    border: 1px black solid;
+    
+    padding: 5px;
+    font-size: 22px;
+    text-align: center;
+}
+.navigator{
+    width: 50%;
+    margin: 0 auto;
+}
+.navigator_btn{
+    display:inline-block;
+    width: fit-content;
+    background-color:#ff5667;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 7px;
+    text-decoration: none;
+}
+
+.next{
+    float: right;
+}
+.previous{
+    float: left;
+}
+.lbl{
+    font-size: 20px;
+    font-weight: 400;
+}
+.btn{
+    background: greenyellow;
+    color: white;
+    padding: 7px;
+    font-size: 20px;
+    font-weight: 400;
+    border:1px gray solid;
+    border-radius: 40px;
+    cursor:pointer;
+}
+.dtl_title{
+    font-size: 24px;
+    font-weight: 400;
+    color:grey;
+}
+.dtl_val{
+     font-size: 26px;
+    font-weight: bold;
+    color: black;
+}
+.details{
+    background-color: lightgrey;
+    width: 300px;
+    padding-left: 5px;
+}
+#search-div{
+    height: 100%;
+    width: 35%;
+    background-color: bisque;
+    float: left;
+    margin-left: 30px;
+}
+select input{
+    font-size: 18px;
+    
+}

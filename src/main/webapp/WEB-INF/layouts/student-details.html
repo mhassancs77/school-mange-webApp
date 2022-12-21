@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>Student Details</title>
+    <th:block id="home-static-resources">
+        <link th:href="@{/static/css/school.css}" rel="stylesheet" />
+    </th:block>
+</head>
+<body>
+    <div id="home-head" th:replace="~{app-fragments :: nav-default}">
+        head
+    </div>
+
+    <!--Wrapper ........................-->
+    <div id="studentDetails-content" class="bodyContent"><br/>
+        <div class="contentHeadTitle"> Student Details Page <hr style="width: 50%"> </div>
+
+        <!-- next/previous navigator-->
+        <div class="navigator" >
+            <div class="navigator_btn previous"><a th:href="@{/student/prev}">Previous</a></div>
+        </div>
+        <!-- next/previous navigator-->
+        <br/>
+
+        <!--Content ........................-->
+        <div>
+            <h2 class="details">Student Details</h2>
+            <span class="dtl_title">Student Name: </span>
+            <span class="dtl_val" th:text="${student.name}"></span>
+            <br/>
+            <span class="dtl_title">Student Age: </span>
+            <span class="dtl_val" th:text="${student.age}"></span>
+            <br/>
+            <span class="dtl_title">Student Gender: </span>
+            <span class="dtl_val" th:text="${student.gender =='M'} ? 'Male' : 'Femal'"></span>
+            <br/>
+            <span class="dtl_title">Student Country: </span>
+            <span class="dtl_val" th:text="${student.country}"></span>
+            <br/>
+            <span class="dtl_title">Student Phone: </span>
+            <span class="dtl_val" th:text="${student.phone}"></span>
+            <br/>
+            <span class="dtl_title">Student Class </span>
+            <span class="dtl_val" th:text="${student.studentClass.name}"></span>
+
+        </div>
+        <!--Content ........................-->
+
+    </div>
+    <!--Wrapper ........................-->
+
+    <div id="home-footer" th:replace="~{app-fragments :: copyright}">
+        Footer
+    </div>
+</body>
+</html>
